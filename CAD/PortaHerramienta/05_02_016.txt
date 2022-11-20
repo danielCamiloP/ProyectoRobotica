@@ -1,0 +1,17 @@
+﻿"Symbol";"Value";"Unit";
+"REFERENCE";"05 02 016";"";
+"MATERIAL";"PVC-U";"";
+"SUPPLIER";"CEPEX";"";
+"ND";"16";"";
+"REFERENCE1";"16307";"";
+"DESIGN";"Codo 45°, encolar hembra, série métrica, UP.02.SF - D:16, Code:16307";"";
+"TraceParts.PartNumber";"32-18022005-099264";"";
+"STANDARD";"EN 1452-3";"";
+"OMNICLASS23";"23.27.39.00";"";
+"TraceParts.InstanceId";"32-18022005-0992643QZKOF8BMDL4IP6QF3MT08UVN";"";
+"TraceParts.PartTitle";"Codo 45°, encolar hembra, série métrica, UP.02.SF - D:16, Code:16307";"";
+"NOMINAL_PRESSURE";"16";"";
+"OUTER_DIAMETER";"22";"";
+"TraceParts.PartLanguage";"es";"";
+"TraceParts.PartVersion";"1.4.5";"";
+"NOMINAL_FLOW";"10";"";
