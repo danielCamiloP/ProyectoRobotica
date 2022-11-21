@@ -1,0 +1,4 @@
+MODULE CalibData
+    PERS tooldata Ventosa_AJDJ:=[TRUE,[[-6,0,116],[0.923879533,0,0.382683432,0]],[0.15,[0,0,1],[1,0,0,0],0,0,0]];
+    TASK PERS wobjdata Objeto_AJDJ:=[FALSE,TRUE,"",[[780.94,-246.929,257],[0.999999745,0.000714088,0,0]],[[0,0,0],[1,0,0,0]]];
+ENDMODULE
