@@ -21,18 +21,17 @@
 
 ## Herramienta porta ventosa
 
-Para la herramienta porta ventosa de opta por utilizar un ensamble de piezas que permita facilitar el agarre de piezas, además de la posibilidad de tener 2 TCP en caso de una mala definición de work object, usar una antena como TCP para definir los 3 puntos del nuevo work object en el laboratorio.
+Para la herramienta porta ventosa de opta por utilizar un ensamble de piezas que permita facilitar el agarre de piezas, además de la posibilidad de tener 2 TCP en caso de una diferencia de work object entre software e implementación, usar una antena como TCP para definir los 3 puntos del nuevo work object en el laboratorio.
 
 Lo primero es definir que tipo de agarre y a qué componente se debe realizar.
 
 FOTO VENTOSA Y UNION PARA AGARRE
-MODELO VENTOSA Y UNION PARA AGARRE
+
+![Modelo acople ventosa manguera](https://user-images.githubusercontent.com/64372371/203583419-3b360a2b-2147-45c7-ae40-20dd16941638.png)
 
 Como se puede evidenciar, existe una región efectiva donde puede generarse un acople de agarre de la ventosa, a continuación se muestran las dimensiones de esta pieza de donde se realizará el acople.
 
-FOTO MEDIDAS PIEZA SOLDADA
-
-![image](https://user-images.githubusercontent.com/64372371/203583419-3b360a2b-2147-45c7-ae40-20dd16941638.png)
+![medidas acople ventosa manguera](https://user-images.githubusercontent.com/64372371/203585673-74d0e43a-491f-4a5e-bfcb-7fd83b5dfbbe.png)
 
 
 A partir de esto, se puede empezar a diseñar el ensamble, empezando por la unión al plato del IRB hasta la unión con la ventosa.
@@ -44,15 +43,14 @@ Ya teniendo el soporte del marcador, se diseña el acople entre dicho soporte y 
 
 Por un lado, la conexión al soporte debe realizarse mediante una conexión hembra-macho, donde se tiene un diámetro interno del tubo de PVC de 21.4mm medido con un pie de rey. Por el otro lado, el plato cuenta con la siguiente disposición de agujeros roscados:
 
-![Dimensiones del plato del IRB140](https://github.com/jcaipap/Lab1_Robotica_Caipa_Holguin/blob/main/Dise%C3%B1o%20de%20la%20herramienta/Imagenes/plato.png?raw=true)
-
+![Dimensiones plato](https://user-images.githubusercontent.com/64372371/203584279-e67c42e7-d4b9-4d3b-964c-9340f5eed0bf.png)
 #### Modelado 3D
 
 Con todo y lo anterior, se define la siguiente pieza para este acople:
 
-![Modelo 3D soporte-plato](https://github.com/jcaipap/Lab1_Robotica_Caipa_Holguin/blob/main/Dise%C3%B1o%20de%20la%20herramienta/Imagenes/acople3D.png)
+![Modelo 3D soporte-plato](https://user-images.githubusercontent.com/64372371/203584315-dc1dbe92-3cac-4169-8002-fb8958b9797c.png)
 
-![Dimensiones del acople soporte-plato](https://github.com/jcaipap/Lab1_Robotica_Caipa_Holguin/blob/main/Dise%C3%B1o%20de%20la%20herramienta/Imagenes/base.png?raw=true)
+![Dimensiones del acople soporte-plato](https://user-images.githubusercontent.com/64372371/203584426-d3a3a7c6-6d22-4989-a873-44373c25157e.png)
 
 Como se puede evidenciar, se cumplen las condiciones para el acople por tornillos M6 al plato, y una diferencia entre diámetros e 0.4mm entre la conexión macho-hembra, lo cual se contempló en caso de posibles imperfecciones en la impresión 3D.
 
@@ -60,9 +58,10 @@ Como se puede evidenciar, se cumplen las condiciones para el acople por tornillo
 
 A partir de este modelado 3D, se utiliza el software Repetier Host y una impresora 3D para generar la pieza. Cabe resaltar que, al ser una impresora propia, la calidad no es tan alta como lo hubiera sido mandar a imprimir. Se imprime en PLA con capas de 0.3mm de espesor y densidad de pieza del 20%. Los resultados de la impresión se muestran a continuación:
 
-![Modelo 3D en Repetier-Host](https://github.com/jcaipap/Lab1_Robotica_Caipa_Holguin/blob/main/Dise%C3%B1o%20de%20la%20herramienta/Imagenes/3DRH.png?raw=true)
 
-![Acople impreso](https://github.com/jcaipap/Lab1_Robotica_Caipa_Holguin/blob/main/Dise%C3%B1o%20de%20la%20herramienta/Imagenes/3DI.jpg?raw=true)
+![Modelo 3D en Repetier-Host](https://user-images.githubusercontent.com/64372371/203584524-66957a24-f991-4180-9237-e9da907691d7.png)
+
+![Acople impreso](https://user-images.githubusercontent.com/64372371/203584888-b88c357b-2ada-4698-97bd-f5cd05064b57.png)
 
 
 
@@ -100,23 +99,18 @@ Las medidas de las dos piezas se muestra a continuación:
 ![Medidas acople codo-ventosa](https://github.com/danielCamiloP/ProyectoRobotica/blob/main/CAD/PortaHerramienta/Imagenes/base%201%20medidas.png?raw=true)
 ![Medidas acople-tapa codo-ventosa](https://github.com/danielCamiloP/ProyectoRobotica/blob/main/CAD/PortaHerramienta/Imagenes/base%202%20medidas.png?raw=true)
 
-
-
+ 
 ### Conjunto porta herramienta
 
 Con base en todas las piezas mencionadas hasta este momento, se realiza el ensamble físico de este, y se miden con un calibrador pie de rey, las distancias al centro de la base, ya que estas serán tenidas en cuenta para el modelado.
 
-
-![Modelo conjunto porta herramientas](https://github.com/danielCamiloP/ProyectoRobotica/blob/main/CAD/PortaHerramienta/Imagenes/ensamble%20PH.png?raw=true)
+IMAGEN REAL PORTAHERRAMIENTAS CON LA VENTOSA
 
 Como se puede evidenciar, el diámetro del acomple ventosa-manguera terminó siendo mayor al diámetro de cierre de acople de agarre de la ventosa con el fin de que no genere juego y mediante una lima se pueda remover el material suficiente, sin embargo mediante el uso de los tornillos, se logra ajustar adecuadamente la ventosa y no fue necesario remover demasiado material.
 
 Dicho esto, se tienen coordenadas del TCP (centro de la ventosa) de 116mm de altura, y 6mm de distancia radial al centro de la base, además de una rotación de 45° entre el eje Z del plato y de la ventosa.
 
-
-
 A partir de estas coordenadas del TCP, se realizan los ajustes necesarios entre las uniones de cada uno de los componentes con el fin de coincidir lo más posible entre la realidad y el modelado para luego ser exportado a Robot Studio. A
-
 
 ![image](https://user-images.githubusercontent.com/64372371/203583700-d8cf30a6-35c1-4ec1-ba2b-b0f0eb427318.png)
 
