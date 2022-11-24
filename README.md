@@ -18,8 +18,11 @@
 
 Para la asignatura de Robótica, de la Universidad Nacional de Colombia, se planteó como proyecto final realizar un proceso de ensamblado pick and place de un modelo de un gripper, realizado en MDF, usando los manipuladores IRB 140 del LabSIR de la universidad. Para esta tarea, se tuvo disponibilidad de un ensamble de ventosa, venturi y electroválvula que permitiera tomar las piezas empleando vacío.
 ### Objetivos
-
-
+- Diseñar el modelo de un gripper articulado con al menos 5 piezas el cual debe ser ensamblado empleando piezas planas cortadas de láminas, unidas entre sí con pasadores, y considerando dimensiones adecuadas para poder ser ensambladas empleando la ventosa.
+- Diseñar las dos bases de trabajo de donde se tomarán las piezas, y de donde estas serán colocadas con sus correspondientes pasadores y guías de ensamblado.
+- Diseñar el portaherramienta que permitirá acoplar la ventosa al manipulador IRB 140.
+- Realizar el ensamble del gripper considerando el orden adecuado de reubicación de las piezas para ser colocadas en la base de ensamble, de tal manera que se pueda accionar el mecanismo una vez acabe el proceso de ensamble.
+- Documentar el desarrollo del laboratorio por medio de un video y un Readme en el repositorio del proyecto.
 
 ## Herramienta porta ventosa
 
