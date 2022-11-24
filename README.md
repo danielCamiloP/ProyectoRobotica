@@ -1,5 +1,5 @@
 # Proyecto Robótica
-## Universiad Nacional de Colombia
+## Universidad Nacional de Colombia
 ## 2022-2
 ***
 ### Autores
@@ -16,6 +16,8 @@
 
 ## Descripción
 
+Para la asignatura de Robótica, de la Universidad Nacional de Colombia, se planteó como proyecto final realizar un proceso de ensamblado pick and place de un modelo de un gripper, realizado en MDF, usando los manipuladores IRB 140 del LabSIR de la universidad. Para esta tarea, se tuvo disponibilidad de un ensamble de ventosa, venturi y electroválvula que permitiera tomar las piezas empleando vacío.
+### Objetivos
 
 
 
