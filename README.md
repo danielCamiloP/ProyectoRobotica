@@ -3,10 +3,10 @@
 ## 2022-2
 ***
 ### Autores
-- Johan Díaz
+- Johan Andrés Díaz Roa
 - Julián Andrés Caipa Prieto
 - Andrés Holguín Restrepo 
-- Daniel Peña
+- Daniel Camilo Peña Pabón
 
 ### Profesores encargados
 - Ing. Ricardo Emiro Ramírez H.
@@ -23,6 +23,19 @@ Para la asignatura de Robótica, de la Universidad Nacional de Colombia, se plan
 - Diseñar el portaherramienta que permitirá acoplar la ventosa al manipulador IRB 140.
 - Realizar el ensamble del gripper considerando el orden adecuado de reubicación de las piezas para ser colocadas en la base de ensamble, de tal manera que se pueda accionar el mecanismo una vez acabe el proceso de ensamble.
 - Documentar el desarrollo del laboratorio por medio de un video y un Readme en el repositorio del proyecto.
+
+## Diseño del gripper articulado
+Para un primer diseño, se consideró un gripper de apertura paralela. Este primer modelo de gripper empleó piezas con una tolerancia para poder ser tomadas por la ventosa de 30mm como mínimo en cada pieza. Se consideró su fabricación en MDF de 5mm de espesor. El plano de este primer gripper se muestra a continuación:
+
+PLANOS CORTE LASER MDF DE PRIMER GRIPPER
+
+También, se diseño una base para las piezas aprovechando la lámina de MDF de la cual se realizó el corte, para poder tomar las piezas de su respectivo lugar, y una base de ensamble que consideró un nivel para poder reposar los dedos del gripper, y los 13 agujeros necesarios para poder colocar tornillos M5 boca arriba tal que el manipulador pudiera depositar las piezas del gripper alineando los tornillos.
+
+PLANO DE LA BASE DE ENSAMBLE
+
+Luego de realizar pruebas en el laboratorio empleando la ventosa y una sola mano para realizar el ensamble, resultó evidente que no era viable utilizar este primer diseño. Primeramente, la ventosa tenía muy poco margen de error en su colocación sobre el gripper. También, debido a las tolerancias tan precisas que se tenían para los agujeros de los tornillos, resultaba muy poco factible realizar el ensamble empleando una sola mano y la ventosa. Por medio de este criterio, se descartó el diseño de gripper paralelo, optando por un gripper de apertura en ángulo con dimensiones más grandes para así tener mucho mejor margen de error en el proceso de ensamblado.
+
+
 
 ## Herramienta porta ventosa
 
