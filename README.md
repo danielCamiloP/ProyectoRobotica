@@ -35,7 +35,19 @@ PLANO DE LA BASE DE ENSAMBLE
 
 Luego de realizar pruebas en el laboratorio empleando la ventosa y una sola mano para realizar el ensamble, resultó evidente que no era viable utilizar este primer diseño. Primeramente, la ventosa tenía muy poco margen de error en su colocación sobre el gripper. También, debido a las tolerancias tan precisas que se tenían para los agujeros de los tornillos, resultaba muy poco factible realizar el ensamble empleando una sola mano y la ventosa. Por medio de este criterio, se descartó el diseño de gripper paralelo, optando por un gripper de apertura en ángulo con dimensiones más grandes para así tener mucho mejor margen de error en el proceso de ensamblado.
 
+Para el diseño del nuevo gripper se consideró que la ventosa quedara con un área de 40x40 mm en cada pieza, tal que se puedan tomar bien. Se diseñaron los agujeros de los tornillos con un margen de 2mm adicionales en el diámetro de los agujeros, es decir, agujeros de 7mm para tornillos M5. El nuevo gripper reemplazó el mecanismo paralelo de 4 eslabones y dos dedos, por dos piezas que consideraban eslabón y pinza, para disminuir la complejidad del ensamble. También, para facilitar el diseño de trayectorias, en el modelo CAD de las piezas del gripper se indicó el centro de donde debería llegar la ventosa para tomar la pieza, con un pequeño agujero de 1mm. Este agujero no fue cortado en el modelo en físico del gripper, para poder tener una succióna decuada de la ventosa.
 
+PONER PLANOS GRIPPER V2
+
+PONER FOTO DEL GRIPPER V2
+
+Adicionalmente, se consideró el mismo método de ensamble de la base para las piezas, donde se colocó un fondo a la lámina de donde se cortaron las piezas de MDF en primera instancia. Sin embargo,luego de varias pruebas en el laboratorio, se concluyó que para facilitar el proceso de ensamblaje, se modificaría esta base por una en la que todas las piezas partan con la orientación en que serán colocadas en la base de ensamble. La nueva base de ensamble siguió el diseño de la del primer gripper, tomando una placa de MDF con agujeros cortados al tamaño de los cabezales de los tornillos y colocando un fondo a estos agujeros. Los tornillos M5 nuevamente irían hacia arriba, tal que la pieza a ensamblar pueda bajar alineada tal que al final del proceso solo haya que colocar tuercas en cada uno de los tornillos. 
+
+PONER FOTO DE LA BASE PORTA PIEZAS ORIGINAL
+
+PONER FOTO DE LA NUEVA BASE PORTA PIEZAS DEL ENSAMBLE
+
+PONER FOTO DE LA BASE DE ENSAMBLE
 
 ## Herramienta porta ventosa
 
