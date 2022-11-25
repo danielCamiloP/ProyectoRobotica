@@ -12,6 +12,7 @@
 - Ing. Ricardo Emiro Ramírez H.
 - Ing. Jhoan Sebastian Rodriguez R.
 ***
+![IMG_20221125_105504](https://user-images.githubusercontent.com/42346344/204056881-92df57a2-d083-443b-979d-fea0639a1ad0.jpg)
 
 
 ## Descripción
