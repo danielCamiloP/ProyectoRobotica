@@ -141,6 +141,8 @@ Con todo y lo anterior, se define la siguiente pieza para este acople:
 
 ![Dimensiones del acople soporte-plato](https://user-images.githubusercontent.com/64372371/203584426-d3a3a7c6-6d22-4989-a873-44373c25157e.png)
 
+Los planos completos de esta pieza, junto con las próximas a mencionar se encuentran [haciendo click aquí](https://github.com/danielCamiloP/ProyectoRobotica/blob/main/CAD/Planos/Planos%20portaherramienta.pdf).
+
 Como se puede evidenciar, se cumplen las condiciones para el acople por tornillos M6 al plato, y una diferencia entre diámetros e 0.4mm entre la conexión macho-hembra, lo cual se contempló en caso de posibles imperfecciones en la impresión 3D.
 
 #### Impresión 3D
@@ -171,7 +173,7 @@ De este modo, ya se puede unir el codo con las demás piezas en el modelado.
 
 ### Acople codo-ventosa
 
-Para realizar el acople entre el codo y la ventosa, se va a usar el propio acople entre la ventosa y la manguera para poder hacer acción de agarre mediante dos piezas.
+Para realizar el acople entre el codo y la ventosa, se va a usar el propio acople entre la ventosa y la manguera para poder hacer acción de agarre mediante dos piezas, las cuales se van a unir con 4 tornillos M3 los cuales son capaces de mantener rígida la ventosa y así evitar movimientos indeseados en esta.
 
 El modelado de las dos piezas se muestra a continuacion:
 
@@ -182,9 +184,16 @@ Como se puede evidenciar, existe un quinto agujero en la tapa para poder añadir
 
 Las medidas de las dos piezas se muestra a continuación:
 
-![Medidas acople codo-ventosa](https://github.com/danielCamiloP/ProyectoRobotica/blob/main/CAD/PortaHerramienta/Imagenes/base%201%20medidas.png?raw=true)
-![Medidas acople-tapa codo-ventosa](https://github.com/danielCamiloP/ProyectoRobotica/blob/main/CAD/PortaHerramienta/Imagenes/base%202%20medidas.png?raw=true)
+![Medidas base agarre ventosa](https://user-images.githubusercontent.com/64372371/204060286-10645fe3-4310-43fc-b638-42a44249d941.png)
+![Medidas tapa agarre ventosa](https://user-images.githubusercontent.com/64372371/204060293-f5092195-4508-4fdf-a1d9-d33e6d504d8a.png)
 
+
+#### Impresión 3D
+
+A partir de estas configuraciones, se realiza el proceso de impresión 3D en PLA de estas dos piezas con la misma configuración de la pieza pasada:
+
+![base agarre ventosa](https://user-images.githubusercontent.com/64372371/204058892-273993e6-592a-45b5-ac47-efa9cd5f2801.png)
+![tapa agarre ventosa](https://user-images.githubusercontent.com/64372371/204058958-8cf53945-b721-457c-aaf0-a19eb4ab0e00.png)
 
 
 ### Conjunto porta herramienta
@@ -197,10 +206,9 @@ Como se puede evidenciar, el diámetro del acomple ventosa-manguera terminó sie
 
 Dicho esto, se tienen coordenadas del TCP (centro de la ventosa) de 116mm de altura, y 6mm de distancia radial al centro de la base, además de una rotación de 45° entre el eje Z del plato y de la ventosa.
 
-A partir de estas coordenadas del TCP, se realizan los ajustes necesarios entre las uniones de cada uno de los componentes con el fin de coincidir lo más posible entre la realidad y el modelado para luego ser exportado a Robot Studio. A
+A partir de estas coordenadas del TCP, se realizan los ajustes necesarios entre las uniones de cada uno de los componentes con el fin de coincidir lo más posible entre la realidad y el modelado para luego ser exportado a Robot Studio.
 
 ![image](https://user-images.githubusercontent.com/64372371/203583700-d8cf30a6-35c1-4ec1-ba2b-b0f0eb427318.png)
-
 
 Con este modelado, se exporta el portaherramienta, junto con la ventosa, a un archivo .SAT que será utilizado como la herramienta en Robot Studio.
 ***
