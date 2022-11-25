@@ -15,6 +15,7 @@
 ![IMG_20221125_105504](https://user-images.githubusercontent.com/42346344/204056881-92df57a2-d083-443b-979d-fea0639a1ad0.jpg)
 
 
+
 ## Descripción
 
 Para la asignatura de Robótica, de la Universidad Nacional de Colombia, se planteó como proyecto final realizar un proceso de ensamblado pick and place de un modelo de un gripper, realizado en MDF, usando los manipuladores IRB 140 del LabSIR de la universidad. Para esta tarea, se tuvo disponibilidad de un ensamble de ventosa, venturi y electroválvula que permitiera tomar las piezas empleando vacío.
@@ -26,29 +27,86 @@ Para la asignatura de Robótica, de la Universidad Nacional de Colombia, se plan
 - Documentar el desarrollo del laboratorio por medio de un video y un Readme en el repositorio del proyecto.
 
 ## Diseño del gripper articulado
+
+### Gripper preliminar
+
 Para un primer diseño, se consideró un gripper de apertura paralela. Este primer modelo de gripper empleó piezas con una tolerancia para poder ser tomadas por la ventosa de 30mm como mínimo en cada pieza. Se consideró su fabricación en MDF de 5mm de espesor. El plano de este primer gripper se muestra a continuación:
 
-PLANOS CORTE LASER MDF DE PRIMER GRIPPER
+![image](https://user-images.githubusercontent.com/64372371/204057964-b8cdc41b-650d-4ad2-98ba-b62a76f209b4.png)
 
 También, se diseño una base para las piezas aprovechando la lámina de MDF de la cual se realizó el corte, para poder tomar las piezas de su respectivo lugar, y una base de ensamble que consideró un nivel para poder reposar los dedos del gripper, y los 13 agujeros necesarios para poder colocar tornillos M5 boca arriba tal que el manipulador pudiera depositar las piezas del gripper alineando los tornillos.
 
-PLANO DE LA BASE DE ENSAMBLE
+![image](https://user-images.githubusercontent.com/64372371/204058077-3b2c96e5-b047-4784-a376-334733b64e2b.png)
+
+
 
 Luego de realizar pruebas en el laboratorio empleando la ventosa y una sola mano para realizar el ensamble, resultó evidente que no era viable utilizar este primer diseño. Primeramente, la ventosa tenía muy poco margen de error en su colocación sobre el gripper. También, debido a las tolerancias tan precisas que se tenían para los agujeros de los tornillos, resultaba muy poco factible realizar el ensamble empleando una sola mano y la ventosa. Por medio de este criterio, se descartó el diseño de gripper paralelo, optando por un gripper de apertura en ángulo con dimensiones más grandes para así tener mucho mejor margen de error en el proceso de ensamblado.
 
+### Gripper final
+
 Para el diseño del nuevo gripper se consideró que la ventosa quedara con un área de 40x40 mm en cada pieza, tal que se puedan tomar bien. Se diseñaron los agujeros de los tornillos con un margen de 2mm adicionales en el diámetro de los agujeros, es decir, agujeros de 7mm para tornillos M5. El nuevo gripper reemplazó el mecanismo paralelo de 4 eslabones y dos dedos, por dos piezas que consideraban eslabón y pinza, para disminuir la complejidad del ensamble. También, para facilitar el diseño de trayectorias, en el modelo CAD de las piezas del gripper se indicó el centro de donde debería llegar la ventosa para tomar la pieza, con un pequeño agujero de 1mm. Este agujero no fue cortado en el modelo en físico del gripper, para poder tener una succióna decuada de la ventosa.
 
-PONER PLANOS GRIPPER V2
+Dicho esto, a continuación se muestra el gripper en ensamble y las dimensiones de cada una de las piezas asociadas. Para referirse a los planos de fabricación de cada una de estas piezas [Haga click aquí](https://github.com/danielCamiloP/ProyectoRobotica/blob/main/CAD/Planos/Planos.pdf). En este archivo, se encuentran todos los planos tanto del gripper como de la base porta piezas y la base de ensamble.
 
-PONER FOTO DEL GRIPPER V2
 
-Adicionalmente, se consideró el mismo método de ensamble de la base para las piezas, donde se colocó un fondo a la lámina de donde se cortaron las piezas de MDF en primera instancia. Sin embargo,luego de varias pruebas en el laboratorio, se concluyó que para facilitar el proceso de ensamblaje, se modificaría esta base por una en la que todas las piezas partan con la orientación en que serán colocadas en la base de ensamble. La nueva base de ensamble siguió el diseño de la del primer gripper, tomando una placa de MDF con agujeros cortados al tamaño de los cabezales de los tornillos y colocando un fondo a estos agujeros. Los tornillos M5 nuevamente irían hacia arriba, tal que la pieza a ensamblar pueda bajar alineada tal que al final del proceso solo haya que colocar tuercas en cada uno de los tornillos. 
+Gripper:
 
-PONER FOTO DE LA BASE PORTA PIEZAS ORIGINAL
+![image](https://user-images.githubusercontent.com/64372371/204056441-f26fc719-8243-44d6-9b25-2f785d5be0e5.png)
 
-PONER FOTO DE LA NUEVA BASE PORTA PIEZAS DEL ENSAMBLE
+Base:
 
-PONER FOTO DE LA BASE DE ENSAMBLE
+![image](https://user-images.githubusercontent.com/64372371/204056332-cd4bb508-ad5b-45fc-a778-03e35e8d6579.png)
+
+Pinza:
+
+![image](https://user-images.githubusercontent.com/64372371/204056349-e28ed4ab-f092-4102-b25e-22c73c64d80e.png)
+
+Soporte:
+
+![image](https://user-images.githubusercontent.com/64372371/204056364-4ff2e12c-455c-4a62-a752-7ae6b29d0545.png)
+
+Pistón:
+
+![image](https://user-images.githubusercontent.com/64372371/204056375-bd135353-9744-4f5f-afa4-2863ef69cda4.png)
+
+A continuación se muestran físicamente las piezas luego de realizar el corte láser en MDF 5mm
+
+![image](https://user-images.githubusercontent.com/64372371/204057729-4cb47637-83e5-4d4e-a503-ef2a3b484b69.png)
+
+
+
+Adicionalmente, se consideró el mismo método de ensamble de la base para las piezas, donde se colocó un fondo a la lámina de donde se cortaron las piezas de MDF en primera instancia. Sin embargo,luego de varias pruebas en el laboratorio, se concluyó que para facilitar el proceso de ensamblaje, se modificaría esta base por una en  que todas las piezas partan con la orientación en que serán colocadas en la base de ensamble, esto con el fin de reducir los errores relativos entre piezas generadas por cambios de orientación en el movimiento con el IRB140. La nueva base de ensamble siguió el diseño de la del primer gripper, tomando una placa de MDF con agujeros cortados al tamaño de los cabezales de los tornillos y colocando un fondo a estos agujeros. Los tornillos M5 nuevamente irían hacia arriba, tal que la pieza a ensamblar pueda bajar alineada tal que al final del proceso solo haya que colocar tuercas en cada uno de los tornillos. 
+
+Base porta piezas inicial:
+
+![image](https://user-images.githubusercontent.com/64372371/204056915-c9a5f39e-18c0-4374-9255-c481a5953bf5.png)
+
+Base porta piezas final:
+
+![image](https://user-images.githubusercontent.com/64372371/204056966-b89f4f27-b760-45f6-b0bf-6f506d609666.png)
+
+Base de ensamblaje:
+
+![image](https://user-images.githubusercontent.com/64372371/204057041-d09b3194-8e1d-42ad-b4b6-13ac29ec2e7c.png)
+
+Mostrados estos modelados, se van a exponer las dimensiones de estas partes finales, las cuales se pueden encontrar sus planos en el hipervínculo mencionado anteriormente para los planos. Además, en la base porta piezas se muestran las coordenadas de los puntos de succión establecidos para los agarres de la ventosa.
+
+Dimensiones base porta piezas final:
+
+![image](https://user-images.githubusercontent.com/64372371/204057158-8e383962-d71d-4edb-82b7-ad76e6168f5f.png)
+
+Dimensiones base de ensamblaje:
+
+![image](https://user-images.githubusercontent.com/64372371/204057163-f7971b8a-a846-4aae-991a-4415c7aba44b.png)
+
+Cabe resaltar que para la base del porta piezas, lo que se realizó fue una impresión a escala real en tamaño A3 del plano, esto con el fin de poder tener una mayor facilidad de movimiento y calibración de las piezas en la práctica, donde la hoja A3 se colocó sobre una base ámplia y plana. Estas dos piezas son colocadas con la misma orientación en el espacio de trabajo del IRB140 como se evidencia en la siguiente imágen:
+
+![image](https://user-images.githubusercontent.com/64372371/204057350-24b45237-979a-4235-b065-bd966822e871.png)
+
+
+Fue necesario el uso de cinta sobre las bases para que estas permanecieran fijas y no perder la calibración de las piezas de trabajo junto con sus bases.
+
+***
 
 ## Herramienta porta ventosa
 
@@ -95,7 +153,6 @@ A partir de este modelado 3D, se utiliza el software Repetier Host y una impreso
 ![Acople impreso](https://user-images.githubusercontent.com/64372371/203584888-b88c357b-2ada-4698-97bd-f5cd05064b57.png)
 
 
-
 ### Codo PVC 45°
 
 Ahora, para la unión entre piezas, se plantea usar un codo de PVC de 45° tal que la orientación final de la ventosa esté a 45° respecto al plato del IRB140, esto con el fin de facilitar montaje, evitar un número excesivo de singularidades, y realizar mejor las tareas.
@@ -112,11 +169,9 @@ Se puede descargar esta pieza en el siguiente enlace: [Click aquí](https://www.
 
 De este modo, ya se puede unir el codo con las demás piezas en el modelado.
 
-
 ### Acople codo-ventosa
 
 Para realizar el acople entre el codo y la ventosa, se va a usar el propio acople entre la ventosa y la manguera para poder hacer acción de agarre mediante dos piezas.
-
 
 El modelado de las dos piezas se muestra a continuacion:
 
@@ -130,12 +185,13 @@ Las medidas de las dos piezas se muestra a continuación:
 ![Medidas acople codo-ventosa](https://github.com/danielCamiloP/ProyectoRobotica/blob/main/CAD/PortaHerramienta/Imagenes/base%201%20medidas.png?raw=true)
 ![Medidas acople-tapa codo-ventosa](https://github.com/danielCamiloP/ProyectoRobotica/blob/main/CAD/PortaHerramienta/Imagenes/base%202%20medidas.png?raw=true)
 
- 
+
+
 ### Conjunto porta herramienta
 
 Con base en todas las piezas mencionadas hasta este momento, se realiza el ensamble físico de este, y se miden con un calibrador pie de rey, las distancias al centro de la base, ya que estas serán tenidas en cuenta para el modelado.
 
-IMAGEN REAL PORTAHERRAMIENTAS CON LA VENTOSA
+![image](https://user-images.githubusercontent.com/64372371/204055852-11015e09-ce1d-4856-9da9-2f4431b44cc2.png)
 
 Como se puede evidenciar, el diámetro del acomple ventosa-manguera terminó siendo mayor al diámetro de cierre de acople de agarre de la ventosa con el fin de que no genere juego y mediante una lima se pueda remover el material suficiente, sin embargo mediante el uso de los tornillos, se logra ajustar adecuadamente la ventosa y no fue necesario remover demasiado material.
 
