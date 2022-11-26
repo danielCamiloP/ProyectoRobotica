@@ -216,11 +216,58 @@ Se arma el espacio de trabajo a usar en el proyecto. Se busca que la placa base 
 
 ![image](https://user-images.githubusercontent.com/42346344/204063663-1197f1b0-440e-4e3b-9125-50467227c81a.png)
 
-Luego se crean los puntos a usar en las trayectorias. Primero se establece un punto Home (Todos los actuadores en posición 0), luego se establecen puntos de agarre para cada pieza. Para ello tomamos de referencia el pequeño agujero incluido en cada uno de los modelos de la placa de base. Posteriormente se situan puntos de aproximación. Estos puntos estarán situados a una cierta distancia vertical de cada uno de los puntos de agarre correspondientes.  
+Luego se crean los puntos a usar en las trayectorias. Primero se establece un punto Home (Todos los actuadores en posición 0), luego se establecen puntos de agarre para cada pieza(Px_Porta). Para ello tomamos de referencia el pequeño agujero incluido en cada uno de los modelos de la placa de base. Posteriormente se situan puntos de aproximación. Estos puntos estarán situados a una cierta distancia vertical de cada uno de los puntos de agarre correspondientes(Px_Alto).  
 
-Despúes y de la misma manera se ubican puntos de liberar piezas en los modelos de pieza ubicados en la placa de montaje y así mismo se sitúan puntos de aproximación sobre los anteriores a una cierta distancia vertical.
+Despúes y de la misma manera se ubican puntos de liberar piezas en los modelos de pieza ubicados en la placa de montaje (Px_Base) y así mismo se sitúan puntos de aproximación sobre los anteriores a una cierta distancia vertical (Px_BAlto).
 
-Ahora para cada pieza se crea una trayectoria que pasa por el punto de aproximación de agarre,  el punto de agarre, el punto de aproximación de agarre, el punto de aproximación de ensamble, el punto de ensamble y el punto de aproximación de ensamble. Este orden con el fin de que no se muevan las placads de base o ensamble debido a alguna fuerza horizontal aplicada por la pieza agarrada. 
+Ahora para cada pieza se crea una trayectoria que pasa por el punto de aproximación de agarre,  el punto de agarre, el punto de aproximación de agarre, el punto de aproximación de ensamble, el punto de ensamble y el punto de aproximación de ensamble. Este orden con el fin de que no se muevan las placas de base o ensamble debido a alguna fuerza horizontal aplicada por la pieza agarrada. En las siguientes imágenes se pueden ver las trayectorias a implementar:
+![image](https://user-images.githubusercontent.com/42346344/204070806-8dbcb703-91c0-4ea3-8e3d-20c54f8dc578.png)
+![image](https://user-images.githubusercontent.com/42346344/204070815-4b07d2f3-14b7-457a-b652-b6f397fe2245.png)
+![image](https://user-images.githubusercontent.com/42346344/204070827-a3b0212b-5571-4c37-a4d0-166851f43817.png)
+![image](https://user-images.githubusercontent.com/42346344/204070840-65e68e1a-b3c4-4e6b-81f1-55313dd73573.png)
+![image](https://user-images.githubusercontent.com/42346344/204070847-0b7f90a4-205d-46ce-ac17-10d20d0406eb.png)
+![image](https://user-images.githubusercontent.com/42346344/204070860-39bbac06-fc71-4df7-9776-8c9ac5ce948d.png)
+ 
+En cada una de estas trayectorias se incluyen algunas instrucciones intermedias que permiten el control de la válvula que acciona o libre la ventosa destinada a agarrar cada pieza. La válvula a utilizar requiere de dos señales digitales, cada una correspondiente a una bobina que sitúa la válvula en una de sus dos posiciones. La salida digital 1 ajusta la válvula física para que la ventosa empieze a succionar. La salida digital 2 ajusta la válvula física para que la ventosa deje de succionar. Cada vez que se llega a un punto de agarre se espera a que se active la entreda digital 1(Botón accionado por operario), para luego activar la salida digital 1 y rápidamente desactivar la salida 1, un pulso que no debe ser muy corto, ya que en caso de ser muy corto, la bobina en la válvula no tendría el tiempo suficiente para cambiar la posición. Luego, al llegar al punto de ensamble, se vuelve a esperar hasta la activación de la entrada digital 1, se activa la salida digital 2 y se desactiva casi al instante la salida digital 2. El código en RAPID de una trayectoria se vería de la siguiente manera:
+
+`
+ PROC Path_Px()
+  MoveAbsJ HomeHerramienta,v150,z10,Tool_AJDJ\WObj:=BaseG;
+  MoveL Px_Alto,v150,z10,Tool_AJDJ\WObj:=Portapiezas;
+  MoveL Px_Porta,v50,z10,Tool_AJDJ\WObj:=Portapiezas;
+  WaitDI DI_01,1;
+  SetDO DO_01,1;
+  WaitTime 0.05;
+  SetDO DO_01,0;
+  MoveL Px_Alto,v50,z10,Tool_AJDJ\WObj:=Portapiezas;
+  MoveL Px_BAlto,v150,z10,Tool_AJDJ\WObj:=BaseG;
+  MoveL Px_Base,v50,z10,Tool_AJDJ\WObj:=BaseG;
+  WaitDI DI_01,1;
+  SetDO DO_02,1;
+  WaitTime 0.05;
+  SetDO DO_02,0;
+  MoveL Px_BAlto,v50,z10,Tool_AJDJ\WObj:=BaseG;
+ENDPROC`
+ 
+Luego se incluyen en orden cada una de las trayectorias anteriores en el procedimiento principal (main). Al inicio de la función principal, se incluye un procedimiento para llegar a la posición de Home luego de que se detecte la activación de la entrada digital 1. Luego de llegar a home y volver a accionar el botón, se inicia el proceso de ensamble, que son los 6 procedimientos definidos anteriormente. Al finalizar los 6 procedimientos, el manipulador vuelve a desplazarse a la posición Home y se activa la salida digital 3, que consta de la bombilla que se debe encender al finalizar el proceso de ensamblado. Adicionalmente se incluyen la instrucciones _SpyArt_y _SyStop_para registrar en la simulación el tiempo que demora el manipulador en llevar a cabo el ensamblado. El código del procedimiento principal es el siguiente:
+
+`PROC main()
+        SpyStart "HOME:/spy.log";
+        SetDO DO_03,0;
+        WaitDI DI_01,1;
+        ToHome;
+        WaitDI DI_01,1;
+        Path_P1;
+        Path_P2;
+        Path_P3;
+        Path_P4;
+        Path_P5;
+        Path_P6;
+        ToHome;
+        SetDO DO_03,1;
+        SpyStop;
+        Break;
+    ENDPROC`
 ## Proceso de ensamble
 ### Ensamble manual
 Como una primera prueba, se buscó realizar el ensamble del gripper empleando una sola mano que tomara las piezas, y así poder determinar dos preguntas: ¿Es fácil colocar las piezas en la base de ensamble?, y ¿Cuál es el mejor orden de armado para el gripper? En el video del proyecto se detalla como se realizó este ensamble, y se confirma que es posible que el manipulador ensamble el gripper, así como el orden adecuado, el cual fue indicado en las piezas usando lápiz. Una vez se tuvo ensamblado el gripper, se probó su funcionamiento, evidenciando que sería necesario lubricar las ranuras de los dedos, así como el pistón para permitir un movimiento suave y fácil de realizar.
