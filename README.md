@@ -212,6 +212,8 @@ Con este modelado, se exporta el portaherramienta, junto con la ventosa, a un ar
 ***
 ## Modelado en RobotStudio
 
+Para realizar el modelo en RobotStudio se genera una estación de trabajo y se ubica en ella el brazo a utilizar, en este caso el IRB 140. 
+
 Se arma el espacio de trabajo a usar en el proyecto. Se busca que la placa base y la base de las piezas queden alineadas a los ejes 'x' y 'y'.
 
 ![image](https://user-images.githubusercontent.com/42346344/204063663-1197f1b0-440e-4e3b-9125-50467227c81a.png)
