@@ -15,7 +15,6 @@
 ![IMG_20221125_105504](https://user-images.githubusercontent.com/42346344/204056881-92df57a2-d083-443b-979d-fea0639a1ad0.jpg)
 
 
-
 ## Descripción
 
 Para la asignatura de Robótica, de la Universidad Nacional de Colombia, se planteó como proyecto final realizar un proceso de ensamblado pick and place de un modelo de un gripper, realizado en MDF, usando los manipuladores IRB 140 del LabSIR de la universidad. Para esta tarea, se tuvo disponibilidad de un ensamble de ventosa, venturi y electroválvula que permitiera tomar las piezas empleando vacío.
@@ -26,7 +25,18 @@ Para la asignatura de Robótica, de la Universidad Nacional de Colombia, se plan
 - Realizar el ensamble del gripper considerando el orden adecuado de reubicación de las piezas para ser colocadas en la base de ensamble, de tal manera que se pueda accionar el mecanismo una vez acabe el proceso de ensamble.
 - Documentar el desarrollo del laboratorio por medio de un video y un Readme en el repositorio del proyecto.
 
+
+
+
+
+
 ## Diseño del gripper articulado
+
+
+
+
+
+
 
 ### Gripper preliminar
 
