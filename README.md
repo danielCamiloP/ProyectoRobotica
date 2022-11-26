@@ -225,7 +225,11 @@ Ahora para cada pieza se crea una trayectoria que pasa por el punto de aproximac
 ### Ensamble manual
 Como una primera prueba, se buscó realizar el ensamble del gripper empleando una sola mano que tomara las piezas, y así poder determinar dos preguntas: ¿Es fácil colocar las piezas en la base de ensamble?, y ¿Cuál es el mejor orden de armado para el gripper? En el video del proyecto se detalla como se realizó este ensamble, y se confirma que es posible que el manipulador ensamble el gripper, así como el orden adecuado, el cual fue indicado en las piezas usando lápiz. Una vez se tuvo ensamblado el gripper, se probó su funcionamiento, evidenciando que sería necesario lubricar las ranuras de los dedos, así como el pistón para permitir un movimiento suave y fácil de realizar.
 
-GIF DEL VIDEO DE ENSAMBLE MANUAL SIN VENTOSA
+
+
+https://user-images.githubusercontent.com/37418973/204070414-a6842f20-201e-49cb-b4ad-e968ac367d56.mp4
+
+
 
 El siguiente paso a seguir, fue realizar el ensamble nuevamente, empleando la ventosa en su portaherramienta, y el sistema neumático. Esto permitiría comprobar que los puntos de contacto de la herramienta con las piezas sería adecuado, así como poder comprobar el funcionamiento de las salidas digitales del sistema robótico. Luego de realizar la prueba, se confirma que la herramienta es funcional, con lo que se procedió a realizar el ensamble automatizado.
 
@@ -235,11 +239,9 @@ GIF DEL VIDEO DE ENSAMBLE MANUAL CON VENTOSA
 
 El proceso de ensamble automatizado inició con la colocación y armado del sistema neumático sobre el manipulador, fijando la electroválvula y el bleeder por medio de cinta, y asegurándose de que las conexiones entre los distintos componentes no tuvieran fugas. Se empleó manguera de 8mm entre la salida de aire del manipulador y la electroválvula, manguera de 6mm entre la electroválvula y el venturi, y finalmente manguera de 8mm entre el venturi y la ventosa, teniendo cuidado de que la manguera no se enredara alrededor del brazo. Durante este proceso, también se instaló la herramienta en el plato portaherramienta.
 
-FOTO DEL MONTAJE DE LA ELECTROVALVULA Y EL BLEEDER (captura de algun vid)
+![image](https://user-images.githubusercontent.com/37418973/204070771-3695007a-58a7-412b-89d1-2c8d12db4f07.png)
 
 Posterior a verificar la succión del sistema, se procedió a realizar una ejecución del código de RobotStudio en vacío, para así poder verificar la colocación de los WorkObjects del programa (la base porta piezas y la base de ensamble), y observar que toda la rutina se ejecutó sin fallas. Una vez se completó el programa en vacío, se posicionaron las bases dentro del espacio de trabajo, deteniendo el programa en el momento en que se iba a tomar la primer pieza del gripper. Empleando esto, se calibró la altura del WorkObject de ambas bases, así como su posición. Este mismo proceso fue realizado con la base de ensamble, colocando la pieza sobre la base de enamble y colocando tornillos para poder obtener una buena alineación. 
-
-FOTO DE LA CALIBRACIÓN (NO SE SI HAY JAJAJ)
 
 Con los workobjects alineados, se ejecutó la rutina de ensamblado en su totalidad, sin colocar tornillos en la base de ensamble. El resultado de este primer proceso fue satisfactorio, salvo por unos offset en la ubicación de las piezas. Esto indicó que sería necesario trabajar el WorkObject de la base de ensamble, separado del primero. 
 
@@ -247,5 +249,4 @@ Con los workobjects alineados, se ejecutó la rutina de ensamblado en su totalid
 
 Luego de corregir este error, y recalibrar la posición de los WorkObject, se ejecutó el código en vacío una vez más, para por último realizar una ejecución con tornillos en la base de ensamble. Luego de afinar aun mejor la posición de la base de ensamble, se obtuvo un proceso de ensamblado satisfactorio, como se muestra en el video del proyecto.
 
-
-
+https://user-images.githubusercontent.com/37418973/204070702-d189692a-3cbe-4cb5-9cc1-4ff5a17a959c.mp4
