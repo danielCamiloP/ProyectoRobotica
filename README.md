@@ -246,11 +246,11 @@ En cada una de estas trayectorias se incluyen algunas instrucciones intermedias 
   WaitTime 0.05;
   SetDO DO_02,0;
   MoveL Px_BAlto,v50,z10,Tool_AJDJ\WObj:=BaseG;
-ENDPROC~~~
+ENDPROC ~~~
  
-Luego se incluyen en orden cada una de las trayectorias anteriores en el procedimiento principal (main). Al inicio de la función principal, se incluye un procedimiento para llegar a la posición de Home luego de que se detecte la activación de la entrada digital 1. Luego de llegar a home y volver a accionar el botón, se inicia el proceso de ensamble, que son los 6 procedimientos definidos anteriormente. Al finalizar los 6 procedimientos, el manipulador vuelve a desplazarse a la posición Home y se activa la salida digital 3, que consta de la bombilla que se debe encender al finalizar el proceso de ensamblado. Adicionalmente se incluyen la instrucciones _SpyArt_y _SyStop_para registrar en la simulación el tiempo que demora el manipulador en llevar a cabo el ensamblado. El código del procedimiento principal es el siguiente:
+Luego se incluyen en orden cada una de las trayectorias anteriores en el procedimiento principal (main). Al inicio de la función principal, se incluye un procedimiento para llegar a la posición de Home luego de que se detecte la activación de la entrada digital 1. Luego de llegar a home y volver a accionar el botón, se inicia el proceso de ensamble, que son los 6 procedimientos definidos anteriormente. Al finalizar los 6 procedimientos, el manipulador vuelve a desplazarse a la posición Home y se activa la salida digital 3, que consta de la bombilla que se debe encender al finalizar el proceso de ensamblado. Adicionalmente se incluyen la instrucciones `SpyArt` y `SyStop` para registrar en la simulación el tiempo que demora el manipulador en llevar a cabo el ensamblado. El código del procedimiento principal es el siguiente:
 
-~~~PROC main()
+~~~ PROC main()
         SpyStart "HOME:/spy.log";
         SetDO DO_03,0; 
         WaitDI DI_01,1; 
@@ -266,7 +266,7 @@ Luego se incluyen en orden cada una de las trayectorias anteriores en el procedi
         SetDO DO_03,1;
         SpyStop;
         Break;
-    ENDPROC~~~
+    ENDPROC ~~~
 ## Proceso de ensamble
 ### Ensamble manual
 Como una primera prueba, se buscó realizar el ensamble del gripper empleando una sola mano que tomara las piezas, y así poder determinar dos preguntas: ¿Es fácil colocar las piezas en la base de ensamble?, y ¿Cuál es el mejor orden de armado para el gripper? En el video del proyecto se detalla como se realizó este ensamble, y se confirma que es posible que el manipulador ensamble el gripper, así como el orden adecuado, el cual fue indicado en las piezas usando lápiz. Una vez se tuvo ensamblado el gripper, se probó su funcionamiento, evidenciando que sería necesario lubricar las ranuras de los dedos, así como el pistón para permitir un movimiento suave y fácil de realizar.
