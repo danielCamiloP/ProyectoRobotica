@@ -26,16 +26,18 @@ Para la asignatura de Robótica, de la Universidad Nacional de Colombia, se plan
 - Documentar el desarrollo del laboratorio por medio de un video y un Readme en el repositorio del proyecto.
 
 
+## Video del proyecto
 
 
+A continuación se muestra la imágen con el enlace para dirigirse al video en YouTube
 
+[![image](https://user-images.githubusercontent.com/64372371/204072583-d9271273-bc38-4886-89ba-8fc4792ca87a.png)
+](https://youtu.be/mKOnXZ3IoE4)
+
+
+A continuación se prosigue con toda la explicación y documentación del proyecto.
 
 ## Diseño del gripper articulado
-
-
-
-
-
 
 
 ### Gripper preliminar
