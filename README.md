@@ -225,15 +225,11 @@ Ahora para cada pieza se crea una trayectoria que pasa por el punto de aproximac
 ### Ensamble manual
 Como una primera prueba, se buscó realizar el ensamble del gripper empleando una sola mano que tomara las piezas, y así poder determinar dos preguntas: ¿Es fácil colocar las piezas en la base de ensamble?, y ¿Cuál es el mejor orden de armado para el gripper? En el video del proyecto se detalla como se realizó este ensamble, y se confirma que es posible que el manipulador ensamble el gripper, así como el orden adecuado, el cual fue indicado en las piezas usando lápiz. Una vez se tuvo ensamblado el gripper, se probó su funcionamiento, evidenciando que sería necesario lubricar las ranuras de los dedos, así como el pistón para permitir un movimiento suave y fácil de realizar.
 
-
-
 https://user-images.githubusercontent.com/37418973/204070414-a6842f20-201e-49cb-b4ad-e968ac367d56.mp4
-
-
 
 El siguiente paso a seguir, fue realizar el ensamble nuevamente, empleando la ventosa en su portaherramienta, y el sistema neumático. Esto permitiría comprobar que los puntos de contacto de la herramienta con las piezas sería adecuado, así como poder comprobar el funcionamiento de las salidas digitales del sistema robótico. Luego de realizar la prueba, se confirma que la herramienta es funcional, con lo que se procedió a realizar el ensamble automatizado.
 
-GIF DEL VIDEO DE ENSAMBLE MANUAL CON VENTOSA
+https://user-images.githubusercontent.com/37418973/204070880-ae64a9b9-35ac-420e-b12c-e33eebf04b95.mp4
 
 ### Ensamble automatizado
 
