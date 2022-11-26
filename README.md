@@ -235,7 +235,7 @@ Con los workobjects alineados, se ejecutó la rutina de ensamblado en su totalid
 
 ![image](https://user-images.githubusercontent.com/37418973/204069280-126bdfd9-d6cb-4204-8a72-753c411ad0a9.png)
 
-Luego de corregir este error, y recalibrar la posición de los WorkObject, se ejecutó el código en vacío una vez más, para por último realizar una ejecución con tornillos en la base de ensamble.
+Luego de corregir este error, y recalibrar la posición de los WorkObject, se ejecutó el código en vacío una vez más, para por último realizar una ejecución con tornillos en la base de ensamble. Luego de afinar aun mejor la posición de la base de ensamble, se obtuvo un proceso de ensamblado satisfactorio, como se muestra en el video del proyecto.
 
 
 
