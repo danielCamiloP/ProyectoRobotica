@@ -114,6 +114,8 @@ Para la herramienta porta ventosa de opta por utilizar un ensamble de piezas que
 
 Lo primero es definir que tipo de agarre y a qué componente se debe realizar.
 
+FOTO VENTOSA Y UNION PARA AGARRE
+
 ![Modelo acople ventosa manguera](https://user-images.githubusercontent.com/64372371/203583419-3b360a2b-2147-45c7-ae40-20dd16941638.png)
 
 Como se puede evidenciar, existe una región efectiva donde puede generarse un acople de agarre de la ventosa, a continuación se muestran las dimensiones de esta pieza de donde se realizará el acople.
@@ -210,3 +212,14 @@ A partir de estas coordenadas del TCP, se realizan los ajustes necesarios entre 
 
 Con este modelado, se exporta el portaherramienta, junto con la ventosa, a un archivo .SAT que será utilizado como la herramienta en Robot Studio.
 ***
+#Modelado en RobotStudio
+
+Se arma el espacio de trabajo a usar en el proyecto. Se busca que la placa base y la base de las piezas queden alineadas a los ejes 'x' y 'y'.
+![image](https://user-images.githubusercontent.com/42346344/204063663-1197f1b0-440e-4e3b-9125-50467227c81a.png)
+Luego se crean los puntos a usar en las trayectorias. Primero se establece un punto Home (Todos los actuadores en posición 0), luego se establecen puntos de agarre para cada pieza. Para ello tomamos de referencia el pequeño agujero incluido en cada uno de los modelos de la placa de base. Posteriormente se situan puntos de aproximación. Estos puntos estarán situados a una cierta distancia vertical de cada uno de los puntos de agarre correspondientes.  
+
+Despúes y de la misma manera se ubican puntos de liberar piezas en los modelos de pieza ubicados en la placa de montaje y así mismo se sitúan puntos de aproximación sobre los anteriores a una cierta distancia vertical.
+
+Ahora para cada pieza se crea una trayectoria que pasa por el punto de aproximación de agarre,  el punto de agarre, el punto de aproximación de agarre, el punto de aproximación de ensamble, el punto de ensamble y el punto de aproximación de ensamble. Este orden con el fin de que no se muevan las placads de base o ensamble debido a alguna fuerza horizontal aplicada por la pieza agarrada. 
+
+
