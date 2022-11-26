@@ -114,8 +114,6 @@ Para la herramienta porta ventosa de opta por utilizar un ensamble de piezas que
 
 Lo primero es definir que tipo de agarre y a qué componente se debe realizar.
 
-FOTO VENTOSA Y UNION PARA AGARRE
-
 ![Modelo acople ventosa manguera](https://user-images.githubusercontent.com/64372371/203583419-3b360a2b-2147-45c7-ae40-20dd16941638.png)
 
 Como se puede evidenciar, existe una región efectiva donde puede generarse un acople de agarre de la ventosa, a continuación se muestran las dimensiones de esta pieza de donde se realizará el acople.
@@ -212,14 +210,32 @@ A partir de estas coordenadas del TCP, se realizan los ajustes necesarios entre 
 
 Con este modelado, se exporta el portaherramienta, junto con la ventosa, a un archivo .SAT que será utilizado como la herramienta en Robot Studio.
 ***
-#Modelado en RobotStudio
 
-Se arma el espacio de trabajo a usar en el proyecto. Se busca que la placa base y la base de las piezas queden alineadas a los ejes 'x' y 'y'.
-![image](https://user-images.githubusercontent.com/42346344/204063663-1197f1b0-440e-4e3b-9125-50467227c81a.png)
-Luego se crean los puntos a usar en las trayectorias. Primero se establece un punto Home (Todos los actuadores en posición 0), luego se establecen puntos de agarre para cada pieza. Para ello tomamos de referencia el pequeño agujero incluido en cada uno de los modelos de la placa de base. Posteriormente se situan puntos de aproximación. Estos puntos estarán situados a una cierta distancia vertical de cada uno de los puntos de agarre correspondientes.  
+## Proceso de ensamble
+### Ensamble manual
+Como una primera prueba, se buscó realizar el ensamble del gripper empleando una sola mano que tomara las piezas, y así poder determinar dos preguntas: ¿Es fácil colocar las piezas en la base de ensamble?, y ¿Cuál es el mejor orden de armado para el gripper? En el video del proyecto se detalla como se realizó este ensamble, y se confirma que es posible que el manipulador ensamble el gripper, así como el orden adecuado, el cual fue indicado en las piezas usando lápiz. Una vez se tuvo ensamblado el gripper, se probó su funcionamiento, evidenciando que sería necesario lubricar las ranuras de los dedos, así como el pistón para permitir un movimiento suave y fácil de realizar.
 
-Despúes y de la misma manera se ubican puntos de liberar piezas en los modelos de pieza ubicados en la placa de montaje y así mismo se sitúan puntos de aproximación sobre los anteriores a una cierta distancia vertical.
+GIF DEL VIDEO DE ENSAMBLE MANUAL SIN VENTOSA
 
-Ahora para cada pieza se crea una trayectoria que pasa por el punto de aproximación de agarre,  el punto de agarre, el punto de aproximación de agarre, el punto de aproximación de ensamble, el punto de ensamble y el punto de aproximación de ensamble. Este orden con el fin de que no se muevan las placads de base o ensamble debido a alguna fuerza horizontal aplicada por la pieza agarrada. 
+El siguiente paso a seguir, fue realizar el ensamble nuevamente, empleando la ventosa en su portaherramienta, y el sistema neumático. Esto permitiría comprobar que los puntos de contacto de la herramienta con las piezas sería adecuado, así como poder comprobar el funcionamiento de las salidas digitales del sistema robótico. Luego de realizar la prueba, se confirma que la herramienta es funcional, con lo que se procedió a realizar el ensamble automatizado.
+
+GIF DEL VIDEO DE ENSAMBLE MANUAL CON VENTOSA
+
+### Ensamble automatizado
+
+El proceso de ensamble automatizado inició con la colocación y armado del sistema neumático sobre el manipulador, fijando la electroválvula y el bleeder por medio de cinta, y asegurándose de que las conexiones entre los distintos componentes no tuvieran fugas. Se empleó manguera de 8mm entre la salida de aire del manipulador y la electroválvula, manguera de 6mm entre la electroválvula y el venturi, y finalmente manguera de 8mm entre el venturi y la ventosa, teniendo cuidado de que la manguera no se enredara alrededor del brazo. Durante este proceso, también se instaló la herramienta en el plato portaherramienta.
+
+FOTO DEL MONTAJE DE LA ELECTROVALVULA Y EL BLEEDER (captura de algun vid)
+
+Posterior a verificar la succión del sistema, se procedió a realizar una ejecución del código de RobotStudio en vacío, para así poder verificar la colocación de los WorkObjects del programa (la base porta piezas y la base de ensamble), y observar que toda la rutina se ejecutó sin fallas. Una vez se completó el programa en vacío, se posicionaron las bases dentro del espacio de trabajo, deteniendo el programa en el momento en que se iba a tomar la primer pieza del gripper. Empleando esto, se calibró la altura del WorkObject de ambas bases, así como su posición. Este mismo proceso fue realizado con la base de ensamble, colocando la pieza sobre la base de enamble y colocando tornillos para poder obtener una buena alineación. 
+
+FOTO DE LA CALIBRACIÓN (NO SE SI HAY JAJAJ)
+
+Con los workobjects alineados, se ejecutó la rutina de ensamblado en su totalidad, sin colocar tornillos en la base de ensamble. El resultado de este primer proceso fue satisfactorio, salvo por unos offset en la ubicación de las piezas. Esto indicó que sería necesario trabajar el WorkObject de la base de ensamble, separado del primero. 
+
+![image](https://user-images.githubusercontent.com/37418973/204069280-126bdfd9-d6cb-4204-8a72-753c411ad0a9.png)
+
+Luego de corregir este error, y recalibrar la posición de los WorkObject, se ejecutó el código en vacío una vez más, para por último realizar una ejecución con tornillos en la base de ensamble.
+
 
 
