@@ -312,3 +312,14 @@ Con los workobjects alineados, se ejecutó la rutina de ensamblado en su totalid
 Luego de corregir este error, y recalibrar la posición de los WorkObject, se ejecutó el código en vacío una vez más, para por último realizar una ejecución con tornillos en la base de ensamble. Luego de afinar aun mejor la posición de la base de ensamble, se obtuvo un proceso de ensamblado satisfactorio, como se muestra en el video del proyecto.
 
 https://user-images.githubusercontent.com/37418973/204070702-d189692a-3cbe-4cb5-9cc1-4ff5a17a959c.mp4
+
+
+
+
+
+## Conclusiones
+
+* Se diseñó un gripper paralelo de 6 piezas capaz de realizar el agarre de piezas sencillas.
+* Se realizó un proceso de ensamblaje asistido del gripper mediante simulación en Robotstudio e implementado físicamente en el LabSIR.
+* La repetibilidad y tiempos de ensamblaje de un proceso asistido son considerablemente mejores que un proceso de ensamblaje manual.
+* La calibración de herramientas y Workobjects en el laboratorio son clave en el proceso de ensamblaje, ya que este va a determinar la correspondencia con el resultado de simulación.
