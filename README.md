@@ -14,7 +14,6 @@
 ***
 ![IMG_20221125_105504](https://user-images.githubusercontent.com/42346344/204056881-92df57a2-d083-443b-979d-fea0639a1ad0.jpg)
 
-
 ## Descripción
 
 Para la asignatura de Robótica, de la Universidad Nacional de Colombia, se planteó como proyecto final realizar un proceso de ensamblado pick and place de un modelo de un gripper, realizado en MDF, usando los manipuladores IRB 140 del LabSIR de la universidad. Para esta tarea, se tuvo disponibilidad de un ensamble de ventosa, venturi y electroválvula que permitiera tomar las piezas empleando vacío.
@@ -81,9 +80,11 @@ Pistón:
 
 ![image](https://user-images.githubusercontent.com/64372371/204056375-bd135353-9744-4f5f-afa4-2863ef69cda4.png)
 
-A continuación se muestran físicamente las piezas luego de realizar el corte láser en MDF 5mm
+A continuación se muestran físicamente las piezas luego de realizar el corte láser en MDF 5mm por separado y ensambladas
 
 ![image](https://user-images.githubusercontent.com/64372371/204057729-4cb47637-83e5-4d4e-a503-ef2a3b484b69.png)
+
+![image](https://user-images.githubusercontent.com/64372371/204072668-7a889c3b-b23b-42b5-8795-3033901a8261.png)
 
 
 
@@ -297,6 +298,12 @@ El siguiente paso a seguir, fue realizar el ensamble nuevamente, empleando la ve
 
 https://user-images.githubusercontent.com/37418973/204070880-ae64a9b9-35ac-420e-b12c-e33eebf04b95.mp4
 
+
+Imágen del montaje en ensamble manual:
+
+![image](https://user-images.githubusercontent.com/64372371/204072294-604dbbb6-bc8b-4bcc-8b03-30e31001ec5e.png)
+
+
 ### Ensamble automatizado
 
 El proceso de ensamble automatizado inició con la colocación y armado del sistema neumático sobre el manipulador, fijando la electroválvula y el bleeder por medio de cinta, y asegurándose de que las conexiones entre los distintos componentes no tuvieran fugas. Se empleó manguera de 8mm entre la salida de aire del manipulador y la electroválvula, manguera de 6mm entre la electroválvula y el venturi, y finalmente manguera de 8mm entre el venturi y la ventosa, teniendo cuidado de que la manguera no se enredara alrededor del brazo. Durante este proceso, también se instaló la herramienta en el plato portaherramienta.
@@ -313,7 +320,11 @@ Luego de corregir este error, y recalibrar la posición de los WorkObject, se ej
 
 https://user-images.githubusercontent.com/37418973/204070702-d189692a-3cbe-4cb5-9cc1-4ff5a17a959c.mp4
 
+Imágen en montaje asistido:
 
+![image](https://user-images.githubusercontent.com/64372371/204072681-a41d0ed8-b36d-4e3e-985c-733fcfae7ce7.png)
+
+Como se puede evidenciar, se logra finalizar la rutina de ensamble asistido con el IRB140, donde cabe resaltar que se tuvo una mejor precisión debido a la mejor repitivilidad del IRB140 en comparación de un operario manual. Los tiempos de ejecución también pudieron haber sido mucho más reducidos, sin em bargo por fines académicos, se utilizaron velocidades bajas y paradas del brazo en cada trayectoria con el fin de no ocasionar inconvenientes con las piezas, herramienta y el robot.
 
 
 
