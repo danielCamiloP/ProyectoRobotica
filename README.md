@@ -114,8 +114,6 @@ Para la herramienta porta ventosa de opta por utilizar un ensamble de piezas que
 
 Lo primero es definir que tipo de agarre y a qué componente se debe realizar.
 
-FOTO VENTOSA Y UNION PARA AGARRE
-
 ![Modelo acople ventosa manguera](https://user-images.githubusercontent.com/64372371/203583419-3b360a2b-2147-45c7-ae40-20dd16941638.png)
 
 Como se puede evidenciar, existe una región efectiva donde puede generarse un acople de agarre de la ventosa, a continuación se muestran las dimensiones de esta pieza de donde se realizará el acople.
