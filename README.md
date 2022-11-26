@@ -225,17 +225,16 @@ Con este modelado, se exporta el portaherramienta, junto con la ventosa, a un ar
 ***
 ## Modelado en RobotStudio
 
-Para realizar el modelo en RobotStudio se genera una estación de trabajo y se ubica en ella el brazo a utilizar, en este caso el IRB 140. 
+Para realizar el modelo en RobotStudio se genera una estación de trabajo y se ubica en ella el brazo a utilizar, en este caso el IRB 140. Contando con la estación de trabajo y el brazo, se procede a generar el controlador y activarlo. Con los preliminares listos, se comienza a modelar el sistema para generar las trayectorias. El primer paso es agregar la herramienta, para ello se importa la geometría de esta y se ajusta el respectivo TCP con orientación de 45 grados en el eje “Y” y 6 milímetros de desfase en “X” y 160 en “z”. 
 
-Se arma el espacio de trabajo a usar en el proyecto. Se busca que la placa base y la base de las piezas queden alineadas a los ejes 'x' y 'y'.
+Con la herramienta ya asociada al robot, se definen los objetos de trabajo, en este caso dos, uno para la parte que tiene las piezas del gripper, y otro para la base en la cual se realizará el ensamblaje, y se definen sistemas coordenados para cada uno con el método de los tres puntos, destacando que los objetos se ubican frente al robot, con las pinzas orientadas hacia este, y un desfase de altura de 277 milímetros debido a la ubicación en físico a dicha altura.
 
 ![image](https://user-images.githubusercontent.com/42346344/204063663-1197f1b0-440e-4e3b-9125-50467227c81a.png)
 
-Luego se crean los puntos a usar en las trayectorias. Primero se establece un punto Home (Todos los actuadores en posición 0), luego se establecen puntos de agarre para cada pieza(Px_Porta). Para ello tomamos de referencia el pequeño agujero incluido en cada uno de los modelos de la placa de base. Posteriormente se situan puntos de aproximación. Estos puntos estarán situados a una cierta distancia vertical de cada uno de los puntos de agarre correspondientes(Px_Alto).  
+Con todo y lo anterior, se proceden a crear 2 posiciones de ejes claves en el modelo, de tipo Home, la primera el Home de laboratorio, con todas las articulaciones en 0°, y la segunda el Home de Herramienta, en el cual la herramienta queda perpendicular al plano de las placas, con todas las articulaciones en 0° a excepción de la quinta con 45° por la orientación del codo de la herramienta. Y luego se crean los puntos de las trayectorias, creados de a 4 por cada pieza, 2 en la placa portapiezas y 2 en la base. Para los de la placa portapiezas se tienen P#_Porta como el punto en el cual toca la pieza y se genera la succión, y P#_Alto como un punto equivalente al anterior, pero con un offset en “Z”, esto con el fin de que no se ataque la pieza en diagonal y no se desplace y se afecte la precisión del programa. Para los de la base se tiene algo similar, solo que se tratan de P#_ Base y de P#_Balto .
 
-Despúes y de la misma manera se ubican puntos de liberar piezas en los modelos de pieza ubicados en la placa de montaje (Px_Base) y así mismo se sitúan puntos de aproximación sobre los anteriores a una cierta distancia vertical (Px_BAlto).
+Ahora bien, con los puntos definidos, se tienen las señales digitales, en el presente caso, se tienen comandos de espera para una señal digital de entrada asignada a un botón que permita controlar la succión de las piezas, y se tienen 3 señales digitales de salida, un piloto que informa sobre el final del proceso, y dos señales que controlan la activación o desactivación de la válvula y conmutan. Se tienen, así pues, las siguientes trayectorias para el ensamblaje del gripper:
 
-Ahora para cada pieza se crea una trayectoria que pasa por el punto de aproximación de agarre,  el punto de agarre, el punto de aproximación de agarre, el punto de aproximación de ensamble, el punto de ensamble y el punto de aproximación de ensamble. Este orden con el fin de que no se muevan las placas de base o ensamble debido a alguna fuerza horizontal aplicada por la pieza agarrada. En las siguientes imágenes se pueden ver las trayectorias a implementar:
 
 ![image](https://user-images.githubusercontent.com/42346344/204070806-8dbcb703-91c0-4ea3-8e3d-20c54f8dc578.png)
 ![image](https://user-images.githubusercontent.com/42346344/204070815-4b07d2f3-14b7-457a-b652-b6f397fe2245.png)
@@ -244,7 +243,7 @@ Ahora para cada pieza se crea una trayectoria que pasa por el punto de aproximac
 ![image](https://user-images.githubusercontent.com/42346344/204070847-0b7f90a4-205d-46ce-ac17-10d20d0406eb.png)
 ![image](https://user-images.githubusercontent.com/42346344/204070860-39bbac06-fc71-4df7-9776-8c9ac5ce948d.png)
  
-En cada una de estas trayectorias se incluyen algunas instrucciones intermedias que permiten el control de la válvula que acciona o libre la ventosa destinada a agarrar cada pieza. La válvula a utilizar requiere de dos señales digitales, cada una correspondiente a una bobina que sitúa la válvula en una de sus dos posiciones. La salida digital 1 ajusta la válvula física para que la ventosa empieze a succionar. La salida digital 2 ajusta la válvula física para que la ventosa deje de succionar. Cada vez que se llega a un punto de agarre se espera a que se active la entreda digital 1(Botón accionado por operario), para luego activar la salida digital 1 y rápidamente desactivar la salida 1, un pulso que no debe ser muy corto, ya que en caso de ser muy corto, la bobina en la válvula no tendría el tiempo suficiente para cambiar la posición. Luego, al llegar al punto de ensamble, se vuelve a esperar hasta la activación de la entrada digital 1, se activa la salida digital 2 y se desactiva casi al instante la salida digital 2. El código en RAPID de una trayectoria se vería de la siguiente manera:
+La velocidad de las trayectorias se da como 150 mm/s cuando se trabaja en desplazamientos entre puntos altos de las placas, y 50 mm/s cuando son movimientos de aproximación a estas, mientras que la zona siempre se mantiene en 10. Considerando dichas definiciones, el código RAPID para una trayectoria arbitraria se define como:
 
 ~~~
  PROC Path_Px()
@@ -266,7 +265,7 @@ En cada una de estas trayectorias se incluyen algunas instrucciones intermedias 
 ENDPROC 
 ~~~
  
-Luego se incluyen en orden cada una de las trayectorias anteriores en el procedimiento principal (main). Al inicio de la función principal, se incluye un procedimiento para llegar a la posición de Home luego de que se detecte la activación de la entrada digital 1. Luego de llegar a home y volver a accionar el botón, se inicia el proceso de ensamble, que son los 6 procedimientos definidos anteriormente. Al finalizar los 6 procedimientos, el manipulador vuelve a desplazarse a la posición Home y se activa la salida digital 3, que consta de la bombilla que se debe encender al finalizar el proceso de ensamblado. Adicionalmente se incluyen la instrucciones `SpyArt` y `SyStop` para registrar en la simulación el tiempo que demora el manipulador en llevar a cabo el ensamblado. El código del procedimiento principal es el siguiente:
+Finalmente, se añaden todas las trayectorias al Main, incluyendo el encendido del piloto final del programa, y el retorno a Home de Laboratorio, y se añaden las instrucciones `SpyStart` y `SpyStop` para general un .log que contiene el tiempo de cada instrucción y general de la simulación, y la instrucción Break que evita que se repita el programa, resultando en un Main:
 
 ~~~
 PROC main()
@@ -287,6 +286,8 @@ PROC main()
         Break;
     ENDPROC 
 ~~~
+
+Cabe destacar que el programa solicita que se pulse le botón también para el inicio general y que la primera trayectoria que ejecuta es ir al Home de Laboratorio. 
 
 ## Proceso de ensamble
 ### Ensamble manual
